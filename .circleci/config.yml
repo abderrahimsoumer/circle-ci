@@ -32,7 +32,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: return 1
+      - run: exit 1
       - run:
           name: Failed Tests
           command: echo "job failed"
