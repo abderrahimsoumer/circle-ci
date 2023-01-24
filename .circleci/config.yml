@@ -28,6 +28,15 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: cat ~/output.txt
+  job_fail:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: return 1
+      - run:
+        name: Failed Tests
+        command: echo "job failed"
+        when: on_fail
 
 workflows:
   my_workflow:
