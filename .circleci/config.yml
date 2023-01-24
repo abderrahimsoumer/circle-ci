@@ -34,14 +34,14 @@ jobs:
     steps:
       - run: return 1
       - run:
-        name: Failed Tests
-        command: echo "job failed"
-        when: on_fail
+          name: Failed Tests
+          command: echo "job failed"
+          when: on_fail
 
 workflows:
   my_workflow:
     jobs:
-      - my_job
+      - job_fail
       - save_hello_world_output
       - print_output_file:
           requires:
